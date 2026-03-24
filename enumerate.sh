@@ -3,20 +3,19 @@
 # ============================================
 # Linux Privilege Escalation Checker
 # POSIX Compliant - No Files Created
-# Compatible dengan sh, bash, dash
+# Compatible with sh, bash, dash
 # ============================================
 
-# Warna (menggunakan tput jika ada, fallback ke manual)
-if command -v tput >/dev/null 2>&1 && [ -t 1 ]; then
-    RED=$(tput setaf 1)
-    GREEN=$(tput setaf 2)
-    YELLOW=$(tput setaf 3)
-    BLUE=$(tput setaf 4)
-    CYAN=$(tput setaf 6)
-    BOLD=$(tput bold)
-    NC=$(tput sgr0)
+# Warna (opsional, jika terminal support)
+if [ -t 1 ]; then
+    RED=$(printf '\033[0;31m')
+    GREEN=$(printf '\033[0;32m')
+    YELLOW=$(printf '\033[1;33m')
+    BLUE=$(printf '\033[0;34m')
+    CYAN=$(printf '\033[0;36m')
+    NC=$(printf '\033[0m')
 else
-    RED=''; GREEN=''; YELLOW=''; BLUE=''; CYAN=''; BOLD=''; NC=''
+    RED=''; GREEN=''; YELLOW=''; BLUE=''; CYAN=''; NC=''
 fi
 
 # Counter
@@ -84,17 +83,16 @@ run_cmd_limited() {
 }
 
 # Start
-clear
-echo "${CYAN}"
-echo "============================================================"
-echo "     Linux Privilege Escalation Enumeration - Live"
-echo "                  No Files Created"
-echo "============================================================"
-echo "${NC}"
-echo "${GREEN}[*]${NC} Started at: $(date)"
-echo "${GREEN}[*]${NC} User: $(whoami 2>/dev/null || echo 'unknown')"
-echo "${GREEN}[*]${NC} Host: $(hostname 2>/dev/null || echo 'unknown')"
-echo "${YELLOW}[!]${NC} This script does NOT create any files"
+printf "%s\n" "${CYAN}============================================================"
+printf "%s\n" "     Linux Privilege Escalation Enumeration - Live"
+printf "%s\n" "                  No Files Created"
+printf "%s\n" "============================================================${NC}"
+echo ""
+
+printf "%s\n" "${GREEN}[*]${NC} Started at: $(date)"
+printf "%s\n" "${GREEN}[*]${NC} User: $(whoami 2>/dev/null || echo 'unknown')"
+printf "%s\n" "${GREEN}[*]${NC} Host: $(hostname 2>/dev/null || echo 'unknown')"
+printf "%s\n" "${YELLOW}[!]${NC} This script does NOT create any files"
 echo ""
 
 # ============================================
@@ -288,15 +286,4 @@ echo "    • Cron jobs with writable scripts"
 echo "    • Writable /etc/passwd or /etc/shadow"
 echo ""
 
-# Optional: Ask to save
-echo "${BLUE}Do you want to save this output to a file? (y/n)${NC}"
-read save_choice 2>/dev/null || save_choice="n"
-if [ "$save_choice" = "y" ] || [ "$save_choice" = "Y" ]; then
-    output_file="enum_$(date +%Y%m%d_%H%M%S).txt"
-    echo "${GREEN}[*]${NC} Saving to: $output_file"
-    echo "Run with: script $output_file -c '$0'" 
-    echo "Or redirect output manually"
-fi
-
-echo ""
 echo "${GREEN}[✓] Done!${NC}"
