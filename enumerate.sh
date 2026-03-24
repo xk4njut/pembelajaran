@@ -208,45 +208,36 @@ run_cmd_limited "df -h 2>/dev/null | head -20" "Disk usage" 20
 run_cmd_limited "lsblk 2>/dev/null | head -20" "Block devices" 20
 
 # ============================================
-# 11. SSH & Keys
+# 11. History & Logs
 # ============================================
-print_header "11. SSH & KEYS"
-
-run_cmd "ls -la ~/.ssh/ 2>/dev/null" "Current user SSH directory"
-run_cmd_limited "find /home -name 'id_rsa' -o -name 'id_dsa' -o -name '*.pem' 2>/dev/null | head -15" "SSH keys" 15
-run_cmd "cat ~/.ssh/authorized_keys 2>/dev/null" "Authorized keys"
-
-# ============================================
-# 12. History & Logs
-# ============================================
-print_header "12. HISTORY & LOGS"
+print_header "11. HISTORY & LOGS"
 
 run_cmd "tail -20 ~/.bash_history 2>/dev/null" "Last 20 bash history"
 run_cmd "tail -10 /var/log/auth.log 2>/dev/null" "Last 10 auth log"
 run_cmd "tail -10 /var/log/syslog 2>/dev/null" "Last 10 syslog"
 
 # ============================================
-# 13. Kernel & Modules
+# 12. Kernel & Modules
 # ============================================
-print_header "13. KERNEL & MODULES"
+print_header "12. KERNEL & MODULES"
 
 run_cmd "uname -a" "Kernel version"
 run_cmd_limited "lsmod 2>/dev/null | head -20" "Loaded kernel modules" 20
 run_cmd "cat /proc/version 2>/dev/null" "Kernel version info"
 
 # ============================================
-# 14. Interesting Files
+# 13. Interesting Files
 # ============================================
-print_header "14. INTERESTING FILES"
+print_header "13. INTERESTING FILES"
 
 run_cmd_limited "find /home -name '.bashrc' -o -name '.profile' -o -name '.bash_profile' 2>/dev/null | head -10" "User config files" 10
 run_cmd_limited "find / -name '*.conf' -type f 2>/dev/null | grep -E 'apache|nginx|mysql|postgres|redis' | head -10" "Config files" 10
 run_cmd "ls -la /etc/passwd /etc/shadow /etc/group /etc/sudoers 2>/dev/null" "Critical files permissions"
 
 # ============================================
-# 15. Docker & Containers
+# 14. Docker & Containers
 # ============================================
-print_header "15. DOCKER & CONTAINERS"
+print_header "14. DOCKER & CONTAINERS"
 
 run_cmd "docker ps 2>/dev/null" "Docker containers"
 run_cmd "docker images 2>/dev/null" "Docker images"
